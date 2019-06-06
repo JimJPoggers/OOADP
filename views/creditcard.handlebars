@@ -1,0 +1,30 @@
+<div id="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card card-body">
+                <h2 class="text-center">Budgeting</h2>
+                <p>Fill up this form to allow us to manage and compare your budget.</p>
+                <p>We will keep track of your progress and notify you if you are going off budget.</p>
+                <form method="post" action="./creditcard/creditcard"> 
+                    <div class="form-group">
+                        <label for="name">Credit Card Number</label>
+                        <input type="text" class="" name="CreditCardNum" value="{{CreditCardNum}}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Card Expiry Date</label>
+                        <input type="text" class="" name="ExpiryDate" value="{{ExpiryDate}}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Secruity Number</label>
+                        <input type="text" class="" name="SecurityNum" value="{{SecurityNum}}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Card Holder Name</label>
+                        <input type="text" class="" name="HolderName" value="{{HolderName}}" required>
+                    </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

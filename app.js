@@ -15,7 +15,6 @@ const MySQLStore = require('express-mysql-session');
 const db = require('./config/db'); // db.js config file
 const passport = require('passport');
 
-
 /*
 * Loads routes file main.js in routes directory. The main.js determines which function
 * will be called based on the HTTP request and URL.
@@ -23,7 +22,7 @@ const passport = require('passport');
 const mainRoute = require('./routes/main');
 const userRoute = require('./routes/user');
 const videoRoute = require('./routes/video');
-
+const creditcardRoute = require('./routes/creditcard');
 // Bring in Handlebars Helpers here
 // Copy and paste this statement only!!
 const { formatDate, radioCheck, replaceCommas } = require('./helpers/hbs');
@@ -119,6 +118,7 @@ app.use('/', mainRoute); // mainRoute is declared to point to routes/main.js
 // This route maps the root URL to any path defined in main.js
 app.use('/user', userRoute); // mainRoute is declared to point to routes/main.js
 app.use('/video', videoRoute);
+app.use('/creditcard',creditcardRoute)
 /*
 * Creates a unknown port 5000 for express server since we don't want our app to clash with well known
 * ports such as 80 or 8080.

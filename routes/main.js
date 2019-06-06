@@ -2,9 +2,8 @@ const express = require('express');
 const router = express.Router();
 const alertMessage = require('../helpers/messenger')
 
-router.get('/', (req, res) => {
-	const title = 'Video Jotter';
-	res.render('index', { title: title }) // renders views/index.handlebars
+router.get('/index', (req, res) => {
+	res.render('index')
 });
 
 // Logout User
@@ -78,5 +77,8 @@ router.get('/productdetails', (req, res) => {
 });
 router.get('/shop', (req, res) => {
 	res.render('shop') 
+});
+router.get('/creditcard', (req,res) => {
+	res.render('creditcard')
 });
 module.exports = router;
