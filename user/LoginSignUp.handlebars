@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <link href="../css/LSFpage.css" rel="stylesheet"/>
+        <script src="../js/jquery-1.10.2.min.js"></script>
+        <script src="../js/JQUERY%20Main.js"></script>
+    </head>
+    <body>
+        <div id="box">
+            <div id="main"></div>
+            
+            <form action="../user/LoginSignUp" method="post">
+                <div id="loginform">
+                    <h1>LOGIN</h1>
+                    <input type="email" name="email" id="email" placeholder="Email" value="{{email}}"/><br>
+                    <input type="password" name="password" placeholder="Password" value="{{password}}"><br><br>
+                    <p>Forget Password? Click <a href = "/ForgetPass" style = "text-decoration: none;">here!</a></p>
+                    <p>Login as <a href = "/AdminLogin" style = "text-decoration: none;">Admin</a></p>
+                    <button id = "submitb" type="submit">LOGIN</button>
+                </div>
+            </form>
+            
+            <form action="../user/LoginSignUp" method="post">
+                <div id="signupform">
+                    <h1>SIGN UP</h1>
+                    <input type="email" name="email" id="email" placeholder="Email" value="{{email}}"/><br>
+                    <input type="password" name="password" placeholder="Password" value="{{password}}"/><br>
+                    <input type="password" name="password2" placeholder="Re-enter password" value="{{password2}}"/><br>
+                    <input type="text" name="weight" placeholder="Weight (kg)" value="{{weight}}"/><br>
+                    <input type="text" name="height" placeholder="Height (cm)" value="{{height}}" /><br>
+                    <button id = "submitb" type="submit">SIGN UP</button>
+                </div>
+            </form>
+
+            <div id="login_msg">Have an account?</div>
+            <div id="signup_msg">Don't have an account?</div>
+            
+            <button id="login_btn">LOGIN</button>
+            <button id="signup_btn">SIGN UP</button>            
+            
+        </div>
+    </body>
+</html>
