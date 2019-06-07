@@ -11,9 +11,9 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const flash = require('connect-flash');
 const FlashMessenger = require('flash-messenger');// Library to use MySQL to store session objects
-const MySQLStore = require('express-mysql-session');
+/* const MySQLStore = require('express-mysql-session');
 const db = require('./config/db'); // db.js config file
-const passport = require('passport');
+const passport = require('passport'); */
 
 /*
 * Loads routes file main.js in routes directory. The main.js determines which function
@@ -21,11 +21,6 @@ const passport = require('passport');
 */
 const mainRoute = require('./routes/main');
 const userRoute = require('./routes/user');
-const videoRoute = require('./routes/video');
-const creditcardRoute = require('./routes/creditcard');
-// Bring in Handlebars Helpers here
-// Copy and paste this statement only!!
-const { formatDate, radioCheck, replaceCommas } = require('./helpers/hbs');
 
 /*
 * Creates an Express server - Express is a web application framework for creating web applications
@@ -44,11 +39,6 @@ const app = express();
 *
 * */
 app.engine('handlebars', exphbs({
-	helpers: {
-		formatDate: formatDate,
-		radioCheck: radioCheck,
-		replaceCommas: replaceCommas
-	},
 	defaultLayout: 'main' // Specify default template views/layout/main.handlebar 
 }));
 app.set('view engine', 'handlebars');
@@ -72,25 +62,13 @@ app.use(cookieParser());
 app.use(session({
 	key: 'vidjot_session',
 	secret: 'tojiv',
-	store: new MySQLStore({
-		host: db.host,
-		port: 3306,
-		user: db.username,
-		password: db.password,
-		database: db.database,
-		clearExpired: true,
-		// How frequently expired sessions will be cleared; milliseconds:
-		checkExpirationInterval: 900000,
-		// The maximum age of a valid session; milliseconds:
-		expiration: 900000,
-	}),
-
 	resave: false,
 	saveUninitialized: false,
 }));
-// Initilize Passport middleware
+
+/* // Initilize Passport middleware
 app.use(passport.initialize());
-app.use(passport.session());
+app.use(passport.session()); */
 
 
 app.use(flash());
@@ -117,23 +95,18 @@ app.use(function (req, res, next) {
 app.use('/', mainRoute); // mainRoute is declared to point to routes/main.js
 // This route maps the root URL to any path defined in main.js
 app.use('/user', userRoute); // mainRoute is declared to point to routes/main.js
-app.use('/video', videoRoute);
-app.use('/creditcard',creditcardRoute)
+
 /*
 * Creates a unknown port 5000 for express server since we don't want our app to clash with well known
 * ports such as 80 or 8080.
 * */
-const port = 1000;
+const port = 5000;
 
 // Starts the server and listen to port 5000
 app.listen(port, () => {
 	console.log(`Server started on port ${port}`);
 });
 
-// Bring in database connection
-const vidjotDB = require('./config/DBConnection');
-// Connects to MySQL database
-vidjotDB.setUpDB(false); // To set up database with new tables set (true)
-// Passport Config
+/* // Passport Config
 const authenticate = require('./config/passport');
-authenticate.localStrategy(passport);
+authenticate.localStrategy(passport); */

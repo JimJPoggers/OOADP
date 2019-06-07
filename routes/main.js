@@ -2,8 +2,9 @@ const express = require('express');
 const router = express.Router();
 const alertMessage = require('../helpers/messenger')
 
-router.get('/index', (req, res) => {
-	res.render('index')
+router.get('/', (req, res) => {
+	const title = 'Video Jotter';
+	res.render('index', { title: title }) // renders views/index.handlebars
 });
 
 // Logout User
@@ -39,46 +40,24 @@ router.get('/about', (req, res) => {
 	}) // renders views/about.handlebars
 });
 
-router.get('/showLogin', (req, res) => {
-	res.render('user/login') // renders views/user/login.handlebars
+router.get('/LoginSignUp', (req, res) => {
+	res.render('user/LoginSignUp') // renders views/user/LoginSignUp.handlebars
 });
 
-router.get('/showRegister', (req, res) => {
-	res.render('user/register') // renders views/register.handlebars
+router.get('/ForgetPass', (req, res) => {
+	res.render('user/ForgetPass') // renders views/user/ForgetPass.handlebars
 });
 
-router.get('/blog', (req, res) => {
-	res.render('blog') 
+router.get('/AdminLogin', (req, res) => {
+	res.render('user/AdminLogin') // renders views/user/AdminLogin.handlebars
 });
 
-router.get('/404', (req, res) => {
-	res.render('404') 
+router.get('/Weight', (req, res) => {
+	res.render('user/Weight') // renders views/user/Weight.handlebars
 });
-router.get('/about', (req, res) => {
-	res.render('about') 
+
+router.get('/Height', (req, res) => {
+	res.render('user/Height') // renders views/user/Height.handlebars
 });
-router.get('/blog-single', (req, res) => {
-	res.render('blog') 
-});
-router.get('/cart', (req, res) => {
-	res.render('cart') 
-});
-router.get('/checkout', (req, res) => {
-	res.render('checkout') 
-});
-router.get('/contactus', (req, res) => {
-	res.render('contact-us') 
-});
-router.get('/login', (req, res) => {
-	res.render('login') 
-});
-router.get('/productdetails', (req, res) => {
-	res.render('product-details') 
-});
-router.get('/shop', (req, res) => {
-	res.render('shop') 
-});
-router.get('/creditcard', (req,res) => {
-	res.render('creditcard')
-});
+
 module.exports = router;
