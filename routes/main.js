@@ -4,8 +4,10 @@ const alertMessage = require('../helpers/messenger')
 const Products = require('../models/Products')
 const fs = require('fs');
 const upload = require('../helpers/imageUpload');
-router.get('/index', (req, res) => {
-	res.render('index')
+
+router.get('/', (req, res) => {
+	const title = 'Video Jotter';
+	res.render('index', { title: title }) // renders views/index.handlebars
 });
 
 router.post('/upload', (req, res) => {
@@ -60,20 +62,20 @@ router.get('/about', (req, res) => {
 	}) // renders views/about.handlebars
 });
 
-router.get('/showLogin', (req, res) => {
-	res.render('user/login') // renders views/user/login.handlebars
+router.get('/LoginSignUp', (req, res) => {
+	res.render('user/LoginSignUp') // renders views/user/LoginSignUp.handlebars
 });
 
-router.get('/showRegister', (req, res) => {
-	res.render('user/register') // renders views/register.handlebars
+router.get('/ForgetPass', (req, res) => {
+	res.render('user/ForgetPass') // renders views/user/ForgetPass.handlebars
 });
 
-router.get('/blog', (req, res) => {
-	res.render('blog') 
+router.get('/AdminLogin', (req, res) => {
+	res.render('user/AdminLogin') // renders views/user/AdminLogin.handlebars
 });
 
-router.get('/404', (req, res) => {
-	res.render('404') 
+router.get('/Weight', (req, res) => {
+	res.render('user/Weight') // renders views/user/Weight.handlebars
 });
 router.get('/about', (req, res) => {
 	res.render('about') 
@@ -129,4 +131,9 @@ router.get('/addproduct',(req,res) =>{
 router.get('/editproduct',(req,res) =>{
 	res.render('editproduct')
 });
+
+router.get('/Height', (req, res) => {
+	res.render('user/Height') // renders views/user/Height.handlebars
+});
+
 module.exports = router;
