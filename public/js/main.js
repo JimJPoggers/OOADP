@@ -49,7 +49,7 @@ $('#posterUpload').on('change', function () {
 	let formdata = new FormData();
 	formdata.append('posterUpload', image);
 	$.ajax({
-		url: '/video/upload',
+		url: '/product/upload',
 		type: 'POST',
 		data: formdata,
 		contentType: false,
