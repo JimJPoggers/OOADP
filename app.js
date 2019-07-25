@@ -23,6 +23,7 @@ const mainRoute = require('./routes/main');
 const userRoute = require('./routes/user');
 const videoRoute = require('./routes/video');
 const creditcardRoute = require('./routes/creditcard');
+const productRoute = require('./routes/product')
 // Bring in Handlebars Helpers here
 // Copy and paste this statement only!!
 const { formatDate, radioCheck, replaceCommas } = require('./helpers/hbs');
@@ -119,6 +120,7 @@ app.use('/', mainRoute); // mainRoute is declared to point to routes/main.js
 app.use('/user', userRoute); // mainRoute is declared to point to routes/main.js
 app.use('/video', videoRoute);
 app.use('/creditcard',creditcardRoute)
+app.use('/product', productRoute)
 /*
 * Creates a unknown port 5000 for express server since we don't want our app to clash with well known
 * ports such as 80 or 8080.

@@ -4,7 +4,7 @@
   "description": "Video Jotter",
   "main": "app.js",
   "scripts": {
-    "start": "start \"\" \"http://localhost:5000\" && nodemon app.js"
+    "start": "start \"\" \"http://localhost:1000\" && nodemon app.js"
   },
   "keywords": [],
   "author": "Chew Phuay Hern",
